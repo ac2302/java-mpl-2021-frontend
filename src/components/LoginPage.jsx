@@ -22,12 +22,18 @@ function LoginPage({ setToken }) {
 									password: e.target.password.value,
 								};
 								console.log(body);
-								axios.post(`${config.backend}/auth/login`, body).then((res) => {
-									console.log(res.data);
-									setToken(res.data.token);
-									localStorage.setItem("token", res.data.token);
-									window.location = "/dashboard";
-								});
+								axios
+									.post(`${config.backend}/auth/login`, body)
+									.then((res) => {
+										console.log(res.data);
+										setToken(res.data.token);
+										localStorage.setItem("token", res.data.token);
+										window.location = "/dashboard";
+									})
+									.catch((err) => {
+										console.error(err);
+										alert("incorrect username or password");
+									});
 							}}
 						>
 							<input

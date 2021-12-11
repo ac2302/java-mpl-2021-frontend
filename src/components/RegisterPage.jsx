@@ -28,6 +28,10 @@ function RegisterPage() {
 									.then((res) => {
 										console.log(res.data);
 										window.location = "/login";
+									})
+									.catch((err) => {
+										console.error(err);
+										alert("username is taken");
 									});
 							}}
 						>
