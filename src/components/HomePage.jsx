@@ -12,7 +12,7 @@ function HomePage() {
 				<div className="navlist">
 					<ul>
 						<li>
-							<a className="href" href="index.html">
+							<a className="href" href="/">
 								Home
 							</a>
 						</li>
@@ -20,17 +20,17 @@ function HomePage() {
 							<a href="#AboutusSection">About Us</a>
 						</li>
 						<li>
-							<a className="href" href="scedule.html">
-								Schedule
+							<a className="href" href="dashboard">
+								Dashboard
 							</a>
 						</li>
 						<li>
-							<a href="contactUs.html">Contact Us</a>
+							<a href="contactUs">Contact Us</a>
 						</li>
 					</ul>
 				</div>
 				<button className="btn">
-					<a className="href" href="Login.html">
+					<a className="href" href="Login">
 						SIGN IN
 					</a>
 				</button>
@@ -42,7 +42,7 @@ function HomePage() {
 				<img src="/Img/We make your day more simpler.png" />
 			</div>
 			<button className="btn1">
-				<a className="href" href="Login.html">
+				<a className="href" href="Login">
 					Get Started
 				</a>
 			</button>
@@ -104,16 +104,16 @@ function HomePage() {
 				<div className="box-container">
 					<div className="box">
 						<h3>Quick Links</h3>
-						<a className="href" href="index.html">
+						<a className="href" href="/">
 							<i className="fas fa-arrow-right"></i> Home
 						</a>
-						<a className="href" href="scedule.html">
-							<i className="fas fa-arrow-right"></i> Schedule Meet
+						<a className="href" href="dashboard">
+							<i className="fas fa-arrow-right"></i> Dashboard
 						</a>
 						<a className="href" href="#">
 							<i className="fas fa-arrow-right"></i>About Us
 						</a>
-						<a className="href" href="contactUs.html">
+						<a className="href" href="contactUs">
 							<i className="fas fa-arrow-right"></i> Contact Us
 						</a>
 					</div>
