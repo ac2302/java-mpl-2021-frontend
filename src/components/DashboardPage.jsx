@@ -1,10 +1,43 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
+import config from "../config";
 import "./DashboardPage.css";
 
-function DashboardPage(token) {
+function DashboardPage({ token }) {
 	const [user, setUser] = useState(null);
-	const [schedule, setSchedule] = useState(null);
+	const [events, setEvents] = useState(null);
+
+	const [date, setDate] = useState({
+		year: new Date().getFullYear(),
+		month: new Date().getMonth() + 1,
+		day: new Date().getDate(),
+	});
+
+	// getting user
+	useEffect(() => {
+		console.log({ dashboardToken: token });
+		axios({
+			method: "get",
+			url: `${config.backend}/auth/self`,
+			headers: { token },
+		})
+			.then((res) => {
+				console.log(res);
+				setUser(res.data.user);
+			})
+			.catch((err) => {
+				console.error({ err });
+			});
+	}, []);
+
+	// setting events
+	useEffect(() => {
+		if (user) {
+			console.log(user.events);
+			setEvents(user.events);
+		}
+	}, [user]);
 
 	return (
 		<div className="dashboard">
@@ -67,7 +100,14 @@ function DashboardPage(token) {
 
 			{/* body */}
 
-			<div className="body"></div>
+			<div className="body">
+				<span>Date: </span>
+				<input
+					type="date"
+					defaultValue={new Date().toISOString().substring(0, 10)}
+				/>
+				<hr />
+			</div>
 		</div>
 	);
 }
