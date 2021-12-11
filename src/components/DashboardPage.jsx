@@ -5,6 +5,16 @@ import config from "../config";
 import "./DashboardPage.css";
 import Navbar from "./Navbar";
 
+function to24h(val) {
+	let hours = String(Math.floor(Number(val) / 60));
+	let minutes = String(Number(val) % 60);
+
+	if (hours.length === 1) hours = "0" + hours;
+	if (minutes.length === 1) minutes = "0" + minutes;
+
+	return `${hours}:${minutes}`;
+}
+
 function DashboardPage({ token }) {
 	const [user, setUser] = useState(null);
 	const [events, setEvents] = useState(null);
@@ -93,15 +103,15 @@ function TaskDisplay({ events, dateInputValue }) {
 function Task({ task }) {
 	console.log(task);
 
-	const start = `${Math.floor(task.start / 60)}:${task.start % 60}`;
-	const end = `${Math.floor(task.end / 60)}:${task.end % 60}`;
+	const start = to24h(task.start);
+	const end = to24h(task.end);
 
 	return (
 		<div className="task">
 			<span>{task.name}</span>
 			<hr />
 			<span>
-				{start} to {end}
+				<b>{start}</b> to <b>{end}</b>
 			</span>
 			<p>{task.description}</p>
 		</div>
