@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import ContactUsPage from "./components/ContactUsPage";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
+import DashboardPage from "./components/DashboardPage";
 
 function App() {
 	const [token, setToken] = useState(null);
@@ -34,7 +35,7 @@ function App() {
 					<Route
 						exact
 						path="/dashboard"
-						element={token ? <h1>dashboard</h1> : <HomePage />}
+						element={token ? <DashboardPage /> : <HomePage />}
 					/>
 				</Routes>
 			</Router>
