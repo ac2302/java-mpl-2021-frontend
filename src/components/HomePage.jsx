@@ -56,9 +56,7 @@ function HomePage() {
 					<img className="profiles" src="./Img/Profile1.svg" alt="" />
 					<div className="name1">Sahil Bhatt</div>
 					<div className="header">Developer</div>
-					<div className="para">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					</div>
+					<div className="para">SEIT1 roll no. 9</div>
 					{/* <!-- <button className="readmore">Read More</button> --> */}
 					<div className="mediaicon">
 						<img className="facebook" src="/Img/facebook.png" />
@@ -71,9 +69,7 @@ function HomePage() {
 					<img className="profiles" src="./Img/profile2.svg" alt="" />
 					<div className="name">Aryan Chavan</div>
 					<div className="header">Developer</div>
-					<div className="para">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					</div>
+					<div className="para">SEIT1 roll no. 12</div>
 					{/* <!-- <button className="readmore">Read More</button> --> */}
 					<div className="mediaicon">
 						<img className="facebook" src="/Img/facebook.png" />
@@ -86,9 +82,7 @@ function HomePage() {
 					<img className="profiles" src="./Img/profile3.svg" alt="" />
 					<div className="name">Vedant Dange</div>
 					<div className="header">Developer</div>
-					<div className="para">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					</div>
+					<div className="para">SEIT1 roll no. 19</div>
 					{/* <!-- <button className="readmore">Read More</button> --> */}
 					<div className="mediaicon">
 						<img className="facebook" src="/Img/facebook.png" />
@@ -98,7 +92,6 @@ function HomePage() {
 				</div>
 			</div>
 			{/* <!-- <div className="footersection"> */}
-			hello
 			{/* </div> --> */}
 			<section className="footer">
 				<div className="box-container">
@@ -137,7 +130,7 @@ function HomePage() {
 				</div>
 
 				<div className="credit">
-					created by <span>GOD</span> | all rights reserved
+					created by <span>Group 6</span> | fully open source
 				</div>
 			</section>
 		</div>
