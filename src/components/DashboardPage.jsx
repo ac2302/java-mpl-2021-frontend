@@ -3,6 +3,7 @@ import axios from "axios";
 
 import config from "../config";
 import "./DashboardPage.css";
+import { random } from "nanoid";
 
 function DashboardPage({ token }) {
 	const [user, setUser] = useState(null);
@@ -107,7 +108,37 @@ function DashboardPage({ token }) {
 					defaultValue={new Date().toISOString().substring(0, 10)}
 				/>
 				<hr />
+				{events && <TaskDisplay events={events} />}
 			</div>
+		</div>
+	);
+}
+
+function TaskDisplay({ events }) {
+	console.log({ wzdfdfs: events });
+	return (
+		<div className="tasks">
+			{events.daily.map((e) => (
+				<Task task={e} key={Math.random()} />
+			))}
+		</div>
+	);
+}
+
+function Task({ task }) {
+	console.log(task);
+
+	const start = `${Math.floor(task.start / 60)}:${task.start % 60}`;
+	const end = `${Math.floor(task.end / 60)}:${task.end % 60}`;
+
+	return (
+		<div className="task">
+			<span>{task.name}</span>
+			<br />
+			<span>
+				{start} to {end}
+			</span>
+			<p>{task.description}</p>
 		</div>
 	);
 }
