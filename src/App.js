@@ -1,10 +1,12 @@
 import "./App.css";
 import HomePage from "./components/HomePage";
+import ContactUsPage from "./components/ContactUsPage";
 
 function App() {
 	return (
 		<div>
-			<HomePage />
+			<ContactUsPage />
+			{/* <HomePage /> */}
 		</div>
 	);
 }
