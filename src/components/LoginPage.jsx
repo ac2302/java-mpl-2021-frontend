@@ -1,46 +1,52 @@
 import React from "react";
 
-function LoginPage() {
+import axios from "axios";
+
+import config from "../config";
+
+function LoginPage({ setToken }) {
 	return (
 		<div className="loginbody">
-            <style>{styles}</style>
+			<style>{styles}</style>
 			<div className="container">
 				<div className="left">
 					<div className="form">
 						<div className="signin">Sign In</div>
 						<form
 							className="input1"
-							method="get"
-							action="/scedule.html"
 							name="form"
+							onSubmit={(e) => {
+								e.preventDefault();
+								const body = {
+									username: e.target.username.value,
+									password: e.target.password.value,
+								};
+								console.log(body);
+								axios.post(`${config.backend}/auth/login`, body).then((res) => {
+									console.log(res.data);
+									setToken(res.data.token);
+									localStorage.setItem("token", res.data.token);
+									window.location = "/dashboard";
+								});
+							}}
 						>
 							<input
 								required
 								className="tags"
-								autocomplete="off"
+								autoComplete="off"
 								type="text"
 								placeholder="Name"
-								name="name"
+								name="username"
 							/>
 							<div id="error_name">Wrong Name</div>
 
 							<input
 								required
 								className="tags"
-								autocomplete="off"
-								type="email"
-								placeholder="Email"
-								name="email"
-							/>
-							<div id="error_email">Wrong Email</div>
-
-							<input
-								required
-								className="tags"
-								autocomplete="off"
-								type="text"
+								autoComplete="off"
+								type="password"
 								placeholder="Password"
-								name="pass"
+								name="password"
 							/>
 							<div id="error_pass">Wrong Password</div>
 
