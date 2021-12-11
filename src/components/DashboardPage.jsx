@@ -8,6 +8,9 @@ import { random } from "nanoid";
 function DashboardPage({ token }) {
 	const [user, setUser] = useState(null);
 	const [events, setEvents] = useState(null);
+	const [dateInputValue, setDateInputValue] = useState(
+		new Date().toISOString().substring(0, 10)
+	);
 
 	const [date, setDate] = useState({
 		year: new Date().getFullYear(),
@@ -105,20 +108,38 @@ function DashboardPage({ token }) {
 				<span>Date: </span>
 				<input
 					type="date"
-					defaultValue={new Date().toISOString().substring(0, 10)}
+					defaultValue={dateInputValue}
+					onChange={(e) => setDateInputValue(e.target.value)}
 				/>
 				<hr />
-				{events && <TaskDisplay events={events} />}
+				{events && (
+					<TaskDisplay events={events} dateInputValue={dateInputValue} />
+				)}
 			</div>
 		</div>
 	);
 }
 
-function TaskDisplay({ events }) {
+function TaskDisplay({ events, dateInputValue }) {
 	console.log({ wzdfdfs: events });
+
+	const year = new Date(dateInputValue).getFullYear();
+	const month = new Date(dateInputValue).getMonth() + 1;
+	const day = new Date(dateInputValue).getDate();
+
+	let oneTimeEvents = [];
+	events.days.forEach((d) => {
+		if (d.year === year && d.month === month && d.day === day) {
+			oneTimeEvents = d.events;
+		}
+	});
+
 	return (
 		<div className="tasks">
 			{events.daily.map((e) => (
+				<Task task={e} key={Math.random()} />
+			))}
+			{oneTimeEvents.map((e) => (
 				<Task task={e} key={Math.random()} />
 			))}
 		</div>
