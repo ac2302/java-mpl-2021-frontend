@@ -22,3 +22,15 @@
 	border-style: none;
 	height: 10px;
 }
+
+.result {
+	padding-top: 20px;
+}
+.result .slot {
+    display: inline-block;
+    width: fit-content;
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 5px;
+    margin: 10px
+}

@@ -10,6 +10,7 @@ import RegisterPage from "./components/RegisterPage";
 import DashboardPage from "./components/DashboardPage";
 import NewDailyEventPage from "./components/NewDailyEventPage";
 import NewEventPage from "./components/NewEventPage";
+import NewMeetingPage from "./components/NewMeetingPage";
 
 function App() {
 	const [token, setToken] = useState(null);
@@ -43,6 +44,11 @@ function App() {
 						exact
 						path="/new-event"
 						element={<NewEventPage token={token} />}
+					/>
+					<Route
+						exact
+						path="/new-meeting"
+						element={<NewMeetingPage token={token} />}
 					/>
 					<Route
 						exact
