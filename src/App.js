@@ -35,7 +35,13 @@ function App() {
 					<Route
 						exact
 						path="/dashboard"
-						element={token ? <DashboardPage /> : <HomePage />}
+						element={
+							token ? (
+								<DashboardPage token={token} setToken={setToken} />
+							) : (
+								<HomePage />
+							)
+						}
 					/>
 				</Routes>
 			</Router>
