@@ -8,6 +8,8 @@ import ContactUsPage from "./components/ContactUsPage";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import DashboardPage from "./components/DashboardPage";
+import NewDailyEventPage from "./components/NewDailyEventPage";
+import NewEventPage from "./components/NewEventPage";
 
 function App() {
 	const [token, setToken] = useState(null);
@@ -32,6 +34,16 @@ function App() {
 					/>
 					<Route exact path="/register" element={<RegisterPage />} />
 					<Route exact path="/contactUs" element={<ContactUsPage />} />
+					<Route
+						exact
+						path="/new-daily-event"
+						element={<NewDailyEventPage token={token} />}
+					/>
+					<Route
+						exact
+						path="/new-event"
+						element={<NewEventPage token={token} />}
+					/>
 					<Route
 						exact
 						path="/dashboard"
