@@ -4,14 +4,14 @@ import axios from "axios";
 
 import config from "../config";
 
-function LoginPage({ setToken }) {
+function RegisterPage() {
 	return (
 		<div className="loginbody">
 			<style>{styles}</style>
 			<div className="container">
 				<div className="left">
 					<div className="form">
-						<div className="signin">Sign In</div>
+						<div className="signin">Sign Up</div>
 						<form
 							className="input1"
 							name="form"
@@ -19,15 +19,16 @@ function LoginPage({ setToken }) {
 								e.preventDefault();
 								const body = {
 									username: e.target.username.value,
+									email: e.target.email.value,
 									password: e.target.password.value,
 								};
 								console.log(body);
-								axios.post(`${config.backend}/auth/login`, body).then((res) => {
-									console.log(res.data);
-									setToken(res.data.token);
-									localStorage.setItem("token", res.data.token);
-									window.location = "/dashboard";
-								});
+								axios
+									.post(`${config.backend}/auth/register`, body)
+									.then((res) => {
+										console.log(res.data);
+										window.location = "/login";
+									});
 							}}
 						>
 							<input
@@ -44,6 +45,15 @@ function LoginPage({ setToken }) {
 								required
 								className="tags"
 								autoComplete="off"
+								type="email"
+								placeholder="Email"
+								name="email"
+							/>
+
+							<input
+								required
+								className="tags"
+								autoComplete="off"
 								type="password"
 								placeholder="Password"
 								name="password"
@@ -51,10 +61,8 @@ function LoginPage({ setToken }) {
 							<div id="error_pass">Wrong Password</div>
 
 							<button type="submit" className="login">
-								<a className="href">Login</a>
+								<a className="href">Create Account</a>
 							</button>
-							<br />
-							<a href="/register">Don't have an account?</a>
 						</form>
 					</div>
 					<div className="house">
@@ -524,4 +532,4 @@ display: none;
   font-weight: bold;
 }`;
 
-export default LoginPage;
+export default RegisterPage;
