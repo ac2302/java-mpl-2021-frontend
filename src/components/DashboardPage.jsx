@@ -31,11 +31,15 @@ function DashboardPage({ token }) {
 	// getting user
 	useEffect(() => {
 		console.log({ dashboardToken: token });
-		axios({
-			method: "get",
-			url: `${config.backend}/auth/self`,
-			headers: { token },
-		})
+		// axios({
+		// 	method: "get",
+		// 	url: `${config.backend}/auth/self`,
+		// 	headers: { token },
+		// })
+		axios
+			.get(`${config.backend}/auth/self`, {
+				headers: { token: localStorage.token },
+			})
 			.then((res) => {
 				console.log(res);
 				setUser(res.data.user);
